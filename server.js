@@ -28,7 +28,7 @@ const app = express();
 // const io = new SocketIOServer(server);
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000',
+    origin: process.env.ORIGIN,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type'],
 }));
@@ -39,7 +39,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
         credentials: true,
-        origin: 'http://localhost:3000',
+        origin: process.env.ORIGIN,
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
         allowedHeaders: ['Content-Type'],
     }
